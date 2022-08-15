@@ -40,6 +40,9 @@
   margin-bottom: 50px;
   color: #000;
 }
+.login-container input::placeholder {
+  color: #000;
+}
 
 .login-container button {
   width: 60%;
@@ -50,9 +53,13 @@
   cursor: pointer;
   font-size: 20px;
   color: #fff;
+  align-items: center;
+  justify-content: center;
 }
 
 .link {
-  width: 100%;
+  width: 70%;
   margin: 0 auto;
+  align-items: center;
+  background-color: #000;
 }

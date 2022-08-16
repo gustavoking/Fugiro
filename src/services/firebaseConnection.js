@@ -1,6 +1,6 @@
-import firebase from "firebase/compat/app";
-import "firebase/compat/auth";
-import "firebase/compat/firestore";
+import firebase from 'firebase/app';
+import 'firebase/auth';
+import 'firebase/firestore';
 
 let firebaseConfig = {
   apiKey: "AIzaSyBcQAyCuL_PnK0AgZTX1v-ctdYXPR63VqI",
@@ -8,10 +8,10 @@ let firebaseConfig = {
   projectId: "fugiro-5c10c",
   storageBucket: "fugiro-5c10c.appspot.com",
   messagingSenderId: "184997169754",
-  appId: "1:184997169754:web:aa98f7ca5d4b3969216663",
+  appId: "1:184997169754:web:aa98f7ca5d4b3969216663"
 };
 
-if (!firebase.apps.length) {
+if(!firebase.apps.length){
   firebase.initializeApp(firebaseConfig);
 }
 

@@ -1,58 +1,39 @@
-import React, { useState, useContext } from "react";
 
-import { Link } from "react-router-dom";
+import { useState, useContext } from 'react';
 
-import "./signIn.css";
-import { AuthContext } from "../../contexts/auth";
+import { AuthContext } from '../../contexts/auth';
+import './signin.css';
 
-export default function SignIn() {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [nome, setNome] = useState("");
+function SignIn() {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
 
-  const { signUp, loadingAuth } = useContext(AuthContext);
+  const { signIn, loadingAuth} = useContext(AuthContext);
 
-  function handleSubmit(e) {
+  function handleSubmit(e){
     e.preventDefault();
-
-    if (nome !== "" && email !== "" && password !== "") {
-      // signUp(email, password);
+    
+    if(email !== '' && password !== ''){
+      signIn(email, password)
     }
+
+
   }
 
   return (
-    <div className="container">
-      <div className="login-container">
-        <img />
+    <div className="container-center">
+      <div className="login">
 
         <form onSubmit={handleSubmit}>
-          <input
-            type="text"
-            placeholder="Seu nome"
-            value={nome}
-            onChange={(e) => setNome(e.target.value)}
-          />
-          <input
-            type="text"
-            placeholder="email@email.com"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-          />
-          <input
-            type="password"
-            placeholder="*******"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-          />
-          <button type="submit">
-            {loadingAuth ? "Carregando..." : "Cadastrar"}
-          </button>
-        </form>
+          <h1>Entrar</h1>
+          <input type="text" placeholder="email@email.com" value={email} onChange={ (e) => setEmail(e.target.value) }/>
+          <input type="password" placeholder="*******" value={password} onChange={(e) => setPassword(e.target.value) } />
+          <button type="submit">{loadingAuth ? 'Carregando...' : 'Acessar'}</button>
+        </form>  
 
-        <Link to="/dashboard" className="link">
-          <button>Login</button>
-        </Link>
       </div>
     </div>
   );
 }
+
+export default SignIn;

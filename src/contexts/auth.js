@@ -43,7 +43,13 @@ function AuthProvider({ children }){
         uid: uid,
         nome: userProfile.data().nome,
         email: value.user.email,
-        tipo: userProfile.data().tipo
+        tipo: userProfile.data().tipo,
+        uf: userProfile.data().uf,
+        cidade: userProfile.data().cidade,
+        sensorLuminosidade: userProfile.data().sensorLuminosidade,
+        sensorAgua: userProfile.data().sensorAgua,
+        sensorSonar: userProfile.data().sensorSonar,
+        sensorTemperatura: userProfile.data().sensorTemperatura
       };
 
       setUser(data);
@@ -63,33 +69,45 @@ function AuthProvider({ children }){
 
 
   //Cadastrando um novo usuario
-  async function signUp(email, password, nome, tipo){
+  async function signUp(email, password, nome, tipo, uf, cidade, lum, agua, sonar, temp){
     setLoadingAuth(true);
 
     await firebase.auth().createUserWithEmailAndPassword(email, password)
     .then( async (value)=>{
       let uid = value.user.uid;
 
-      await firebase.firestore().collection('users')
-      .doc(uid).set({
-        nome: nome,
-        tipo: tipo
-      })
-      .then( () => {
-
-        let data = {
-          uid: uid,
+      if(tipo == 'master'){
+        await firebase.firestore().collection('users')
+        .doc(uid).set({
           nome: nome,
-          email: value.user.email,
           tipo: tipo
-        };
+        })
+        .then( () => {
 
-        setUser(data);
-        storageUser(data);
-        setLoadingAuth(false);
-        toast.success('Novo usuário cadastrado!');
+          setLoadingAuth(false);
+          toast.success('Novo usuário cadastrado!');
+  
+        })
 
-      })
+      }else if(tipo == 'comum'){
+        await firebase.firestore().collection('users')
+        .doc(uid).set({
+          nome: nome,
+          uf: uf,
+          cidade: cidade,
+          tipo: tipo,
+          sensorLuminosidade: lum,
+          sensorAgua: agua,
+          sensorSonar: sonar,
+          sensorTemperatura: temp
+        })
+        .then( () => {
+
+          setLoadingAuth(false);
+          toast.success('Novo usuário cadastrado!');
+
+        })
+        }
 
     })
     .catch((error)=>{

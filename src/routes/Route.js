@@ -9,7 +9,7 @@ export default function RouteWrapper({
   isPrivate,
   ...rest
 }){
-  const { signed, loading } = useContext(AuthContext);
+  const { signed, loading} = useContext(AuthContext);
 
 
 

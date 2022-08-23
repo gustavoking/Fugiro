@@ -22,15 +22,21 @@ function SignIn() {
 
   return (
     <div className="container-center">
-      <div className="login">
+      <div className='container-title'>
+        <span className='fugiro'>Fugiro</span>
+        <span className='agro'>agro</span>
+      </div>
 
-        <form onSubmit={handleSubmit}>
-          <h1>Entrar</h1>
-          <input type="text" placeholder="email@email.com" value={email} onChange={ (e) => setEmail(e.target.value) }/>
-          <input type="password" placeholder="*******" value={password} onChange={(e) => setPassword(e.target.value) } />
-          <button type="submit">{loadingAuth ? 'Carregando...' : 'Acessar'}</button>
-        </form>  
+        <div className="login">
 
+          <form className='form' onSubmit={handleSubmit}>
+            <h1>Entrar</h1>
+            <input type="text" placeholder="Digite seu e-mail..." value={email} onChange={ (e) => setEmail(e.target.value) }/>
+            <input type="password" placeholder="Insira sua senha..." value={password} onChange={(e) => setPassword(e.target.value) } />
+            <button type="submit">{loadingAuth ? 'Carregando...' : 'Acessar'}</button>
+          </form>  
+
+        <a href=''>Contatar o suporte</a>
       </div>
     </div>
   );

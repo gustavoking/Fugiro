@@ -1,9 +1,13 @@
-import 'react-toastify/dist/ReactToastify.css';
-import { BrowserRouter } from 'react-router-dom';
-import AuthProvider from './contexts/auth';
-import Routes from './routes';
-import { ToastContainer } from 'react-toastify';
-import { LocalProvider } from './contexts/local';
+import "react-toastify/dist/ReactToastify.css";
+import { useContext } from "react";
+
+import { BrowserRouter } from "react-router-dom";
+import AuthProvider from "./contexts/auth";
+import Routes from "./routes";
+
+import { ToastContainer } from "react-toastify";
+import { LocalProvider } from "./contexts/local";
+import { AuthContext } from "./contexts/auth";
 
 function App() {
   return (
@@ -11,7 +15,7 @@ function App() {
       <LocalProvider>
         <BrowserRouter>
           <ToastContainer autoClose={2000} />
-          <Routes/>
+          <Routes />
         </BrowserRouter>
       </LocalProvider>
     </AuthProvider>

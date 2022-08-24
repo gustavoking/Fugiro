@@ -1,0 +1,115 @@
+@import url('https://fonts.googleapis.com/css2?family=Aboreto&display=swap');
+
+.container{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+}
+
+.header-title{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    background-color: black;
+    padding: 10px 0;
+}
+
+.title-fugiro{
+    color: white;
+    font-size: 24px;
+}
+
+.title-agro{
+    color: #ee936f;
+    font-size: 24px;
+}
+
+.header{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 10px;
+    align-items: center;
+}
+
+.header-user{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.header-user button{
+    border: 0px;
+    margin-right: 5px;
+}
+
+.header-user span{
+    font-size: 20px;
+}
+
+.container-adduser{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.container-adduser span{
+    color: black;
+    font-size: 20px;
+    padding-left: 5px;
+}
+
+.container-fazendas{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 40px;
+}
+
+.title-fazendas{
+    font-size: 25px;
+    font-family: 'Aboreto';
+    font-weight: 600;
+}
+
+.lista-fazendas{
+    display: flex;
+    flex-direction: column;
+    padding: 20px 0;
+    overflow-y: scroll;
+    height: 430px;
+    border-bottom: 1px solid;
+    
+}
+
+.item-fazenda{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0 10px;
+    justify-content: space-between;
+    width: 600px;
+    min-height: 60px;
+    background-color: #e3d5ca;
+    border-radius: 10px;
+    -webkit-box-shadow: 5px 5px 15px -9px #000000; 
+    box-shadow: 5px 5px 15px -9px #000000;
+    margin-top: 20px;
+    height: 60px;
+}
+
+.item-fazenda span{
+    font-size: 20px;
+}
+
+.fazenda-options{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 45px;
+}

@@ -77,67 +77,87 @@ function SignUp() {
 
   return (
       <div className="container-center">
-        <div className="login">
+        <div className="signup">
 
-          <form onSubmit={handleSubmit}>
+          <form onSubmit={handleSubmit} className='form-signup'>
             <h1>Cadastrar uma conta</h1>
-            <input type="text" placeholder="Seu nome" value={nome} onChange={(e) => setNome(e.target.value)} />
-            <input type="text" placeholder="email@email.com" value={email} onChange={ (e) => setEmail(e.target.value) }/>
-            <input type="password" placeholder="*******" value={password} onChange={(e) => setPassword(e.target.value) } />
 
-            <input type='radio' name='radio-type' value='master' onChange={() => setTipo('master')}/>
-            <input type='radio' name='radio-type' value='comum' onChange={() => setTipo('comum')}/>
-            
+            <span>Insira o nome</span>
+            <input type="text" placeholder="nome..." value={nome} onChange={(e) => setNome(e.target.value)} />
+
+            <span>Insira o email</span>
+            <input type="text" placeholder="email@email.com" value={email} onChange={ (e) => setEmail(e.target.value) }/>
+
+            <span>Insira a senha</span>
+            <input type="text" placeholder="senha..." value={password} onChange={(e) => setPassword(e.target.value) } />
+
+            <span>Tipo do usuário</span>
+
+            <div className='container-radio'>
+              <div className='container-radioitem'>
+                <input type='radio' name='radio-type' value='master' onChange={() => setTipo('master')}/>
+                <a>Master</a>
+              </div>
+
+              <input type='radio' name='radio-type' value='comum' onChange={() => setTipo('comum')}/>
+              <a>Comum</a>
+            </div>
             
             {tipo == 'comum' &&
-              <div>
-                <BrazilStates onChange={handleInputChange}/>
+              <div className='container-comum'>
 
-                <BrazilCities state={formValues.state} />
+                <div className='container-select'>
+                  <BrazilStates onChange={handleInputChange}/>
 
-                <div>
-                  <input
-                  type='checkbox'
-                  value={sensorLuminosidade}
-                  onChange={() => {{sensorLuminosidade == '0' ? setSensorLuminosidade('1') : setSensorLuminosidade('0')}}}
-                  />
-                  <span> Sensor Luminosidade </span>
+                  <BrazilCities state={formValues.state}/>
                 </div>
 
-                <div>
-                  <input
-                  type='checkbox'
-                  value={sensorAgua}
-                  onChange={() => {{sensorAgua == '0' ? setSensorAgua('1') : setSensorAgua('0')}}}
-                  />
-                  <span> Sensor Nível da água </span>
-                </div>
+                <div className='container-sensores'>
+                  <span>Selecione os sensores</span>
 
-                <div>
-                  <input
-                  type='checkbox'
-                  value={sensorSonar}
-                  onChange={() => {{sensorSonar == '0' ? setSensorSonar('1') : setSensorSonar('0')}}}
-                  />
-                  <span> Sensor Sonar </span>
-                </div>
+                  <div className='sensor'>
+                    <input
+                    type='checkbox'
+                    value={sensorLuminosidade}
+                    onChange={() => {{sensorLuminosidade == '0' ? setSensorLuminosidade('1') : setSensorLuminosidade('0')}}}
+                    />
+                    <span> Sensor Luminosidade </span>
+                  </div>
 
-                <div>
-                  <input
-                  type='checkbox'
-                  value={sensorTemperatura}
-                  onChange={() => {{sensorTemperatura == '0' ? setSensorTemperatura('1') : setSensorTemperatura('0')}}}
-                  />
-                  <span> Sensor Temperatura </span>
-                </div>
+                  <div className='sensor'>
+                    <input
+                    type='checkbox'
+                    value={sensorAgua}
+                    onChange={() => {{sensorAgua == '0' ? setSensorAgua('1') : setSensorAgua('0')}}}
+                    />
+                    <span> Sensor Nível da água </span>
+                  </div>
+
+                  <div className='sensor'>
+                    <input
+                    type='checkbox'
+                    value={sensorSonar}
+                    onChange={() => {{sensorSonar == '0' ? setSensorSonar('1') : setSensorSonar('0')}}}
+                    />
+                    <span> Sensor Sonar </span>
+                  </div>
+
+                  <div className='sensor'>
+                    <input
+                    type='checkbox'
+                    value={sensorTemperatura}
+                    onChange={() => {{sensorTemperatura == '0' ? setSensorTemperatura('1') : setSensorTemperatura('0')}}}
+                    /> <span> Sensor Temperatura </span>
+                  </div>
+              </div>
               </div>
 
             }{tipo == 'master' && setCidade('')}
 
-            <button type="submit">{loadingAuth ? 'Carregando...' : 'Cadastrar'}</button>
+            <button type="submit" className='button-signup'>{loadingAuth ? 'Carregando...' : 'Cadastrar'}</button>
           </form>
 
-          <Link to="/dashboard">Voltar para o dash</Link>
+          <Link to="/dashboard" className='voltar-dash'>Voltar para o dash</Link>
         </div>
       </div>
   );

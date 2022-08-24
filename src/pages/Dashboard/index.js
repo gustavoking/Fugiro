@@ -10,9 +10,7 @@ export default function Dashboard() {
 
   if (user.tipo == "master") {
     return <TelaMaster />;
-  } else if (user.tipo == "comum") {
-    return <TelaComum />;
   } else {
-    return <div>ERRO</div>;
+    return <TelaComum />;
   }
 }

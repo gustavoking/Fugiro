@@ -1,132 +1,134 @@
-.signup{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 500px;
-    padding: 10px 0;
-    background: #3F3C37;
-    border-radius: 8px;
-    -webkit-box-shadow: 0px 10px 13px -7px #ffffff, -4px -5px 0px 8px rgba(0,0,0,0); 
-    box-shadow: 0px 10px 13px -7px #000000, -4px -5px 0px 8px rgba(255, 255, 255, 0);
+.signup {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 500px;
+  padding: 10px 0;
+  background: #3f3c37;
+  border-radius: 8px;
+  -webkit-box-shadow: 0px 10px 13px -7px #ffffff,
+    -4px -5px 0px 8px rgba(0, 0, 0, 0);
+  box-shadow: 0px 10px 13px -7px #000000,
+    -4px -5px 0px 8px rgba(255, 255, 255, 0);
 
-    justify-content: flex-start;
-    backdrop-filter: blur(7px) saturate(74%);
-    -webkit-backdrop-filter: blur(7px) saturate(74%);
-    border-radius: 12px;
-    border: 1px solid rgba(255, 255, 255, 0.125);
+  justify-content: flex-start;
+  backdrop-filter: blur(7px) saturate(74%);
+  -webkit-backdrop-filter: blur(7px) saturate(74%);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.125);
 }
 
-.form-signup{
-    display: flex;
-    flex-direction: column;
+.form-signup {
+  display: flex;
+  flex-direction: column;
 }
 
-.form-signup h1{
-    color:aliceblue
+.form-signup h1 {
+  color: aliceblue;
 }
 
-.form-signup span{
-    color: aliceblue;
-    font-size: 19px;
-    margin-top: 15px;
+.form-signup span {
+  color: aliceblue;
+  font-size: 19px;
+  margin-top: 15px;
 }
 
-.form-signup input{
-    border-radius: 5px;
-    text-indent: 3px;
-    height: 30px;
-    width:265px;
-    border:solid 2px black;
+.form-signup input {
+  border-radius: 5px;
+  text-indent: 3px;
+  height: 30px;
+  width: 265px;
+  border: solid 2px black;
 }
 
-.container-radio{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
+.container-radio {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 }
 
-.container-radioitem{
-    display: flex;
-    margin-right: 20px;
-    align-items: center;
+.container-radioitem {
+  display: flex;
+  margin-right: 20px;
+  align-items: center;
 }
 
-.container-radio input{
-    width: 10px;
-    margin-right: 10px;
+.container-radio input {
+  width: 10px;
+  margin-right: 10px;
 }
 
-.container-radio a{
-    color: white;
+.container-radio a {
+  color: white;
 }
 
 .button-signup {
-    margin-top: 10px;
-    border: solid 2px black;
-    border-radius:5px;
-    background-color:#A89E8A;
-    font-size: 15px;
-    width:15vw;
-    height: 30px;
-    font-weight: bold;
-    position: relative;
-    cursor: pointer;
-    color: aliceblue;
-    transition: 1s all;
-    width: 265px;
+  margin-top: 10px;
+  border: solid 2px black;
+  border-radius: 5px;
+  background-color: #a89e8a;
+  font-size: 15px;
+  width: 15vw;
+  height: 30px;
+  font-weight: bold;
+  position: relative;
+  cursor: pointer;
+  color: aliceblue;
+  transition: 1s all;
+  width: 265px;
 }
 
 .button-signup:hover {
-
-   background-color: wheat ;
-   transform: scale(1.1);
-   color: black;
-
+  background-color: wheat;
+  transform: scale(1.1);
+  color: black;
 }
 
-.voltar-dash{
-    color: rgba(255, 255, 255, 0.5);
-    font-size: 12px;
-    margin-top: 5px;
+.voltar-dash {
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 13px;
+  margin-top: 5px;
 }
 
-.container-comum{
-    display: flex;
-    flex-direction: column;
+.container-comum {
+  display: flex;
+  flex-direction: column;
 }
 
-.container-select{
-    display: flex;
-    flex-direction: column;
-    width: 265px;
-    margin-top: 20px;
+.container-select {
+  display: flex;
+  flex-direction: column;
+  width: 265px;
+  margin-top: 20px;
+  height: 50px;
+  justify-content: space-between;
 }
 
-.container-sensores{
-    display: flex;
-    flex-direction: column;
-    margin-top: 20px;
+.container-sensores {
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
 }
 
-.container-sensores h2{
-    color: white;
-    margin-bottom: 10px;
+.container-sensores h2 {
+  color: white;
+  margin-bottom: 10px;
 }
 
-.sensor{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    margin-bottom: 10px;
+.sensor {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-bottom: 10px;
 }
 
-.sensor input{
-    width: 13px;
-    margin-right: 5px;
+.sensor input {
+  width: 13px;
+  margin-right: 5px;
 }
 
-.sensor span{
-    font-size: 15px;
-    margin: 0px;
-    padding: 0px;
+.sensor span {
+  font-size: 15px;
+  margin: 0px;
+  padding: 0px;
 }

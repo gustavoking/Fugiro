@@ -1,7 +1,7 @@
 import { useState, useContext } from "react";
 
 import { AuthContext } from "../../contexts/auth";
-import "./signin.css";
+import "./signIn.css";
 
 function SignIn() {
   const [email, setEmail] = useState("");
@@ -19,8 +19,6 @@ function SignIn() {
 
   return (
     <div className="container-center">
-      
-
       <div className="login">
         <form className="form" onSubmit={handleSubmit}>
           <h1>Entrar</h1>

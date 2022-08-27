@@ -5,6 +5,8 @@ import Sensor from "../Sensor";
 import { BiLogOut } from "react-icons/bi";
 import sol from "../../assets/sol-removebg-preview.png";
 import waterA from "../../assets/waterA.png";
+import term from "../../assets/term.png";
+import sonar from "../../assets/sonar.png";
 
 import { AuthContext } from "../../contexts/auth";
 
@@ -60,7 +62,7 @@ export default function TelaComum() {
         {userVariables.sensorTemperatura > "-1" && (
           <Sensor
             sensor="Temperatura"
-            image={sol}
+            image={term}
             unidade={userVariables.sensorTemperatura + "ºC"}
             valor={parseInt(userVariables.sensorTemperatura)}
           />
@@ -87,7 +89,7 @@ export default function TelaComum() {
         {userVariables.sensorSonar > "-1" && (
           <Sensor
             sensor="Sonar"
-            image={sol}
+            image={sonar}
             unidade={userVariables.sensorSonar + "%"}
             valor={userVariables.sensorSonar}
           />

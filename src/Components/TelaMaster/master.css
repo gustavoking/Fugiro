@@ -1,11 +1,12 @@
 @import url("https://fonts.googleapis.com/css2?family=Aboreto&display=swap");
 
-.container {
+.ccc {
   display: flex;
   flex-direction: column;
   height: 100%;
   width: 100%;
   overflow: hidden;
+  background-color: #d9d9d9;
 }
 
 .header-title {
@@ -14,7 +15,7 @@
   width: 100%;
   align-items: center;
   justify-content: center;
-  background-color: black;
+  background-color: #000000;
   padding: 10px 0;
 }
 
@@ -34,6 +35,7 @@
   justify-content: space-between;
   padding: 10px;
   align-items: center;
+  background-color: #d9d9d9;
 }
 
 .header-user {
@@ -45,6 +47,7 @@
 .header-user button {
   border: 0px;
   margin-right: 5px;
+  background-color: #d9d9d9;
 }
 
 .header-user span {
@@ -68,6 +71,7 @@
   flex-direction: column;
   align-items: center;
   margin-top: 40px;
+  background-color: #d9d9d9;
 }
 
 .title-fazendas {

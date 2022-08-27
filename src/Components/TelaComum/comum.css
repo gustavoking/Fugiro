@@ -1,0 +1,31 @@
+.container {
+  background-color: #d9d9d9;
+  height: 100%;
+}
+
+.container-sensores {
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+  justify-content: center;
+  margin-top: 250px;
+}
+.header-title {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  background-color: #000000;
+  padding: 10px 0;
+}
+
+.title-fugiro {
+  color: white;
+  font-size: 24px;
+}
+
+.title-agro {
+  color: #ee936f;
+  font-size: 24px;
+}

@@ -47,7 +47,7 @@ export default function TelaMaster() {
   };
 
   return (
-    <div className="container">
+    <div className="ccc">
       <div className="header-title">
         <span className="title-fugiro">Fugiro</span>
         <span className="title-agro">Agro</span>

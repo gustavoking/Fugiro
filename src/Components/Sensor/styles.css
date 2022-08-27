@@ -1,8 +1,9 @@
 .container-sensor {
   display: flex;
+  flex-direction: column;
   align-items: center;
+  justify-content: space-around;
   padding: 0 100px;
-  justify-content: center;
   width: 250px;
   min-height: 60px;
   background-color: #e3d5ca;
@@ -14,5 +15,45 @@
 }
 
 .container-sensor span {
-  color: #ff5e1e;
+  color: #000;
+  font-family: "Aboreto";
+  font-weight: bold;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.sol {
+  width: 40px;
+  height: 40px;
+  margin-top: 10px;
+}
+
+.unity {
+  display: flex;
+  color: #000;
+  font-family: "Aboreto";
+  font-weight: bold;
+  height: 30px;
+  font-size: 25px;
+  width: 30px;
+  align-items: center;
+  justify-content: center;
+}
+
+.verde {
+  color: green;
+}
+
+.vermelho {
+  color: red;
+}
+
+.laranja {
+  color: orangered;
+}
+
+.textoColor {
+  font-family: "Aboreto";
+  font-weight: bold;
+  font-size: 15px;
 }

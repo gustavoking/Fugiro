@@ -75,7 +75,7 @@ export default function TelaMaster() {
             <div className="lista-fazendas">
               <div className="item-fazenda">
                 <BiUserCheck size={20} color="black" />
-                <span>{item.nome}</span>
+                <span>Fazenda do {item.nome}</span>
                 <div className="fazenda-options">
                   <FiTrash2
                     size={20}

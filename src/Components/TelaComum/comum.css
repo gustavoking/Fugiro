@@ -29,3 +29,14 @@
   color: #ee936f;
   font-size: 24px;
 }
+
+.title-fazenda {
+  display: flex;
+  font-size: 25px;
+  font-family: "Aboreto";
+  font-weight: 600;
+  color: #000;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2px;
+}

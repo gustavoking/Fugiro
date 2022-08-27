@@ -3,6 +3,8 @@ import { useEffect, useState, useContext } from "react";
 import firebase from "../../services/firebaseConnection";
 import Sensor from "../Sensor";
 import { BiLogOut } from "react-icons/bi";
+import sol from "../../assets/sol-removebg-preview.png";
+import waterA from "../../assets/waterA.png";
 
 import { AuthContext } from "../../contexts/auth";
 
@@ -53,30 +55,42 @@ export default function TelaComum() {
         </button>
         <span> {user.nome} </span>
       </div>
+      <span className="title-fazenda">Fazenda do {user.nome}</span>
       <div className="container-sensores">
         {userVariables.sensorTemperatura > "-1" && (
-          <div>
-            <Sensor sensor="Temperatura" />
-          </div>
+          <Sensor
+            sensor="Temperatura"
+            image={sol}
+            unidade={userVariables.sensorTemperatura + "ºC"}
+            valor={parseInt(userVariables.sensorTemperatura)}
+          />
         )}
 
         {userVariables.sensorAgua > "-1" && (
-          <div>
-            <Sensor sensor="Água" />
-          </div>
+          <Sensor
+            sensor="Água"
+            image={waterA}
+            unidade={userVariables.sensorAgua + "%"}
+            valor={parseInt(userVariables.sensorAgua)}
+          />
         )}
 
         {userVariables.sensorLuminosidade > "-1" && (
-          <div>
-            <Sensor sensor="Luminosidade" />
-          </div>
+          <Sensor
+            sensor="Luminosidade"
+            image={sol}
+            unidade={userVariables.sensorLuminosidade + "lux"}
+            valor={userVariables.sensorLuminosidade}
+          />
         )}
 
         {userVariables.sensorSonar > "-1" && (
-          <div>
-            {" "}
-            <Sensor sensor="Sonar" />{" "}
-          </div>
+          <Sensor
+            sensor="Sonar"
+            image={sol}
+            unidade={userVariables.sensorSonar + "%"}
+            valor={userVariables.sensorSonar}
+          />
         )}
       </div>
     </div>

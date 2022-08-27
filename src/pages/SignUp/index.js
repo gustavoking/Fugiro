@@ -16,10 +16,10 @@ function SignUp() {
   const [password, setPassword] = useState("");
   const [tipo, setTipo] = useState("");
 
-  const [sensorLuminosidade, setSensorLuminosidade] = useState("0");
-  const [sensorAgua, setSensorAgua] = useState("0");
-  const [sensorSonar, setSensorSonar] = useState("0");
-  const [sensorTemperatura, setSensorTemperatura] = useState("0");
+  const [sensorLuminosidade, setSensorLuminosidade] = useState("-1");
+  const [sensorAgua, setSensorAgua] = useState("-1");
+  const [sensorSonar, setSensorSonar] = useState("-1");
+  const [sensorTemperatura, setSensorTemperatura] = useState("-1");
 
   const [formValues, setFormValus] = useState({});
 
@@ -159,9 +159,9 @@ function SignUp() {
                     value={sensorLuminosidade}
                     onChange={() => {
                       {
-                        sensorLuminosidade == "0"
+                        sensorLuminosidade === "-1"
                           ? setSensorLuminosidade("1")
-                          : setSensorLuminosidade("0");
+                          : setSensorLuminosidade("-1");
                       }
                     }}
                   />
@@ -174,9 +174,9 @@ function SignUp() {
                     value={sensorAgua}
                     onChange={() => {
                       {
-                        sensorAgua == "0"
+                        sensorAgua === "-1"
                           ? setSensorAgua("1")
-                          : setSensorAgua("0");
+                          : setSensorAgua("-1");
                       }
                     }}
                   />
@@ -189,9 +189,9 @@ function SignUp() {
                     value={sensorSonar}
                     onChange={() => {
                       {
-                        sensorSonar == "0"
+                        sensorSonar === "-1"
                           ? setSensorSonar("1")
-                          : setSensorSonar("0");
+                          : setSensorSonar("-1");
                       }
                     }}
                   />
@@ -204,9 +204,9 @@ function SignUp() {
                     value={sensorTemperatura}
                     onChange={() => {
                       {
-                        sensorTemperatura == "0"
+                        sensorTemperatura === "-1"
                           ? setSensorTemperatura("1")
-                          : setSensorTemperatura("0");
+                          : setSensorTemperatura("-1");
                       }
                     }}
                   />{" "}

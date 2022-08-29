@@ -59,7 +59,7 @@ export default function TelaComum() {
       </div>
       <span className="title-fazenda">Fazenda do {user.nome}</span>
       <div className="container-sensores">
-        {userVariables.sensorTemperatura > "-1" && (
+        {parseInt(userVariables.sensorTemperatura) > parseInt("-1") && (
           <Sensor
             sensor="Temperatura"
             image={term}
@@ -68,7 +68,7 @@ export default function TelaComum() {
           />
         )}
 
-        {userVariables.sensorAgua > "-1" && (
+        {parseInt(userVariables.sensorAgua) > parseInt("-1") && (
           <Sensor
             sensor="Água"
             image={waterA}
@@ -77,7 +77,7 @@ export default function TelaComum() {
           />
         )}
 
-        {userVariables.sensorLuminosidade > "-1" && (
+        {parseInt(userVariables.sensorLuminosidade) > parseInt("-1") && (
           <Sensor
             sensor="Luminosidade"
             image={sol}
@@ -86,7 +86,7 @@ export default function TelaComum() {
           />
         )}
 
-        {userVariables.sensorSonar > "-1" && (
+        {parseInt(userVariables.sensorSonar) > parseInt("-1") && (
           <Sensor
             sensor="Sonar"
             image={sonar}

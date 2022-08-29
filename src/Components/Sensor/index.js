@@ -5,6 +5,7 @@ import firebase from "../../services/firebaseConnection";
 import { AuthContext } from "../../contexts/auth";
 
 import "./styles.css";
+import { toast } from "react-toastify";
 
 export default function Sensor({ sensor, image, unidade, valor }) {
   const [valorInput, setValorInput] = useState("");
@@ -12,6 +13,16 @@ export default function Sensor({ sensor, image, unidade, valor }) {
   const { user } = useContext(AuthContext);
 
   const textoClassName = `textoColor ${corTextoSensor(sensor, valor)}`;
+  const inputClassName = `sizeInput ${backgroundInput()}`;
+
+  function backgroundInput() {
+    switch (!switchInput) {
+      case false:
+        return "preto";
+      case true:
+        return "transparente";
+    }
+  }
 
   function corTextoSensor(sensor, valor) {
     switch (sensor) {
@@ -20,7 +31,7 @@ export default function Sensor({ sensor, image, unidade, valor }) {
       case "Água":
         return valor < 20 ? "vermelho" : valor > 50 ? "verde" : "laranja";
       case "Luminosidade":
-        return valor < 10 ? "vermelho" : "verde";
+        return valor < 1 ? "vermelho" : "verde";
       case "Sonar":
         return valor < 20 ? "vermelho" : valor > 50 ? "verde" : "laranja";
     }
@@ -45,7 +56,7 @@ export default function Sensor({ sensor, image, unidade, valor }) {
           return "médio";
         }
       case "Luminosidade":
-        if (valor < 10) {
+        if (valor < 1) {
           return "desligado";
         } else {
           return "ligado";
@@ -80,42 +91,60 @@ export default function Sensor({ sensor, image, unidade, valor }) {
 
   const handleChange = async () => {
     if (!switchInput && valorInput !== "") {
-      switch (sensor) {
-        case "Água":
-          return await firebase
-            .firestore()
-            .collection("users")
-            .doc(user.uid)
-            .update({
-              sensorAgua: valorInput,
-            });
-        case "Temperatura":
-          return await firebase
-            .firestore()
-            .collection("users")
-            .doc(user.uid)
-            .update({
-              sensorTemperatura: valorInput,
-            });
-        case "Luminosidade":
-          return await firebase
-            .firestore()
-            .collection("users")
-            .doc(user.uid)
-            .update({
-              sensorLuminosidade: valorInput,
-            });
-        case "Sonar":
-          return await firebase
-            .firestore()
-            .collection("users")
-            .doc(user.uid)
-            .update({
-              sensorSonar: valorInput,
-            });
-      }
+      if (parseInt(valorInput) >= 0) {
+        switch (sensor) {
+          case "Água":
+            return await firebase
+              .firestore()
+              .collection("users")
+              .doc(user.uid)
+              .update({
+                sensorAgua: valorInput,
+              })
+              .then(() => {
+                window.location.reload();
+              });
+          case "Temperatura":
+            return await firebase
+              .firestore()
+              .collection("users")
+              .doc(user.uid)
+              .update({
+                sensorTemperatura: valorInput,
+              })
+              .then(() => {
+                window.location.reload();
+              });
+          case "Luminosidade":
+            return await firebase
+              .firestore()
+              .collection("users")
+              .doc(user.uid)
+              .update({
+                sensorLuminosidade: valorInput,
+              })
+              .then(() => {
+                window.location.reload();
+              });
+          case "Sonar":
+            return await firebase
+              .firestore()
+              .collection("users")
+              .doc(user.uid)
+              .update({
+                sensorSonar: valorInput,
+              })
+              .then(() => {
+                window.location.reload();
+              });
+        }
 
-      setSwitchInput((value) => !value);
+        setSwitchInput((value) => !value);
+      } else {
+        toast.error("Digite um numero positivo");
+      }
+    } else {
+      toast.error("Digite um numero");
     }
   };
 
@@ -150,7 +179,7 @@ export default function Sensor({ sensor, image, unidade, valor }) {
           placeholder="  Insira o valor"
           value={valorInput}
           onChange={(e) => setValorInput(e.target.value)}
-          className="inputChange"
+          className={inputClassName}
           disabled={switchInput}
         ></input>
 
@@ -161,7 +190,7 @@ export default function Sensor({ sensor, image, unidade, valor }) {
         </div>
       </div>
 
-      <div>
+      <div className="porfora">
         <p className={textoClassName}>{textoSensor(sensor, valor)}</p>
       </div>
     </div>

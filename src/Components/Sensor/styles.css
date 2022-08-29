@@ -60,11 +60,12 @@
 }
 
 .transparente {
-  background-color: #fff;
+  background-color: #e6e6e6;
+  opacity: 0.4;
 }
 
 .preto {
-  background-color: grey;
+  background-color: #e6e6e6;
 }
 
 .Input {
@@ -87,7 +88,7 @@
   width: 20px;
   border: none;
   margin-top: 2px;
-  background-color: #ee936f;
+  background-color: #c2c2c2;
   border-radius: 90px;
 }
 

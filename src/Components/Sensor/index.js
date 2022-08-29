@@ -18,9 +18,9 @@ export default function Sensor({ sensor, image, unidade, valor }) {
   function backgroundInput() {
     switch (!switchInput) {
       case false:
-        return "preto";
-      case true:
         return "transparente";
+      case true:
+        return "preto";
     }
   }
 

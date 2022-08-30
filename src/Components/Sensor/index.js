@@ -13,7 +13,7 @@ export default function Sensor({ sensor, image, unidade, valor }) {
   const { user } = useContext(AuthContext);
 
   const textoClassName = `textoColor ${corTextoSensor(sensor, valor)}`;
-  const inputClassName = `sizeInput ${backgroundInput()}`;
+  const inputClassName = backgroundInput();
 
   function backgroundInput() {
     switch (!switchInput) {
@@ -91,7 +91,23 @@ export default function Sensor({ sensor, image, unidade, valor }) {
 
   const handleChange = async () => {
     if (!switchInput && valorInput !== "") {
-      if (parseInt(valorInput) >= 0) {
+      if (
+        sensor === "Temperatura" &&
+        parseInt(valorInput) > -100 &&
+        parseInt(valorInput) < 60
+      ) {
+        return await firebase
+          .firestore()
+          .collection("users")
+          .doc(user.uid)
+          .update({
+            sensorTemperatura: valorInput,
+          })
+          .then(() => {
+            window.location.reload();
+          });
+      } else if (parseInt(valorInput >= 0)) {
+        console.log("b");
         switch (sensor) {
           case "Água":
             return await firebase
@@ -104,17 +120,7 @@ export default function Sensor({ sensor, image, unidade, valor }) {
               .then(() => {
                 window.location.reload();
               });
-          case "Temperatura":
-            return await firebase
-              .firestore()
-              .collection("users")
-              .doc(user.uid)
-              .update({
-                sensorTemperatura: valorInput,
-              })
-              .then(() => {
-                window.location.reload();
-              });
+
           case "Luminosidade":
             return await firebase
               .firestore()
@@ -138,10 +144,17 @@ export default function Sensor({ sensor, image, unidade, valor }) {
                 window.location.reload();
               });
         }
-
         setSwitchInput((value) => !value);
       } else {
-        toast.error("Digite um numero positivo");
+        if (sensor === "Temperatura") {
+          toast.error("A temperatura vai de -100 a 60 ");
+        } else if (sensor === "Luminosidade") {
+          toast.error("A luminosidade só aceita valores positivos");
+        } else if (sensor === "Sonar") {
+          toast.error("O nivel sonar vai somente de 0 a 100%");
+        } else if (sensor === "Água") {
+          toast.error("O nivel de água vai somente de 0 a 100%");
+        }
       }
     } else {
       toast.error("Digite um numero");

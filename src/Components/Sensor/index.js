@@ -1,6 +1,6 @@
 import { useState, useContext } from "react";
-import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
-import { BiRightArrowCircle } from "react-icons/bi";
+import { IoLockClosed, IoLockOpenOutline } from "react-icons/io5";
+import { FiChevronRight } from "react-icons/fi";
 import firebase from "../../services/firebaseConnection";
 import { AuthContext } from "../../contexts/auth";
 
@@ -13,7 +13,7 @@ export default function Sensor({ sensor, image, unidade, valor }) {
   const { user } = useContext(AuthContext);
 
   const textoClassName = `textoColor ${corTextoSensor(sensor, valor)}`;
-  const inputClassName = backgroundInput();
+  const inputClassName = `sizeInput ${backgroundInput()}`;
 
   function backgroundInput() {
     switch (!switchInput) {
@@ -107,7 +107,6 @@ export default function Sensor({ sensor, image, unidade, valor }) {
             window.location.reload();
           });
       } else if (parseInt(valorInput >= 0)) {
-        console.log("b");
         switch (sensor) {
           case "Água":
             return await firebase
@@ -151,9 +150,9 @@ export default function Sensor({ sensor, image, unidade, valor }) {
         } else if (sensor === "Luminosidade") {
           toast.error("A luminosidade só aceita valores positivos");
         } else if (sensor === "Sonar") {
-          toast.error("O nivel sonar vai somente de 0 a 100%");
+          toast.error("O nível sonar vai somente de 0 a 100%");
         } else if (sensor === "Água") {
-          toast.error("O nivel de água vai somente de 0 a 100%");
+          toast.error("O nível de água vai somente de 0 a 100%");
         }
       }
     } else {
@@ -174,14 +173,14 @@ export default function Sensor({ sensor, image, unidade, valor }) {
       </div>
       <div className="flexrow">
         {switchInput ? (
-          <AiFillEyeInvisible
+          <IoLockClosed
             color="black"
             size={25}
             style={{ marginLeft: 5, cursor: "pointer" }}
             onClick={() => changeInput()}
           />
         ) : (
-          <AiFillEye
+          <IoLockOpenOutline
             color="black"
             size={25}
             style={{ marginLeft: 5, cursor: "pointer" }}
@@ -189,7 +188,8 @@ export default function Sensor({ sensor, image, unidade, valor }) {
           />
         )}
         <input
-          placeholder="  Insira o valor"
+          placeholder="..."
+          type="number"
           value={valorInput}
           onChange={(e) => setValorInput(e.target.value)}
           className={inputClassName}
@@ -197,8 +197,15 @@ export default function Sensor({ sensor, image, unidade, valor }) {
         ></input>
 
         <div>
-          <button onClick={() => handleChange()} className="handleButton">
-            <BiRightArrowCircle size={20} color="black" />
+          <button
+            disabled={switchInput}
+            onClick={() => handleChange()}
+            className="handleButton"
+          >
+            <FiChevronRight
+              size={20}
+              color={!switchInput ? "black" : "#E2DFD2"}
+            />
           </button>
         </div>
       </div>

@@ -81,6 +81,7 @@
 .flexrow {
   display: flex;
   flex-direction: row;
+  justify-content: space-around;
 }
 
 .handleButton {
@@ -98,4 +99,9 @@
 
 .porfora {
   white-space: nowrap;
+}
+
+.sizeInput {
+  width: 80px;
+  margin: 0px 20px;
 }

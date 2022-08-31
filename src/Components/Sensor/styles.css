@@ -105,3 +105,9 @@
   width: 80px;
   margin: 0px 20px;
 }
+
+.exc-sensor{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}

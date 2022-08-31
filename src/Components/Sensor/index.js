@@ -1,19 +1,51 @@
 import { useState, useContext } from "react";
 import { IoLockClosed, IoLockOpenOutline } from "react-icons/io5";
-import { FiChevronRight } from "react-icons/fi";
+import { FiChevronRight, FiTrash2 } from "react-icons/fi";
 import firebase from "../../services/firebaseConnection";
 import { AuthContext } from "../../contexts/auth";
 
 import "./styles.css";
 import { toast } from "react-toastify";
 
-export default function Sensor({ sensor, image, unidade, valor }) {
+export default function Sensor({ sensor, image, unidade, valor, usedFor, uidUser, sensorSelect }) {
   const [valorInput, setValorInput] = useState("");
   const [switchInput, setSwitchInput] = useState(true);
   const { user } = useContext(AuthContext);
 
   const textoClassName = `textoColor ${corTextoSensor(sensor, valor)}`;
   const inputClassName = `sizeInput ${backgroundInput()}`;
+
+  async function deleteSensor(uidUser, sensorSelect, e){
+    e.preventDefault()
+    switch(sensorSelect) {
+      case 'sensorAgua':
+        return await firebase.firestore().collection('users').doc(uidUser)
+        .update({sensorAgua: -999})
+        .then(() => {
+          window.location.reload()
+        })
+  
+      case 'sensorLuminosidade':
+        return await firebase.firestore().collection('users').doc(uidUser)
+        .update({sensorLuminosidade: -999})
+        .then(() => {
+          window.location.reload()
+        })
+
+      case 'sensorSonar':
+        return await firebase.firestore().collection('users').doc(uidUser)
+        .update({sensorSonar: -999})
+        .then(() => {
+          window.location.reload()
+        })
+
+      case 'sensorTemperatura':
+        return await firebase.firestore().collection('users').doc(uidUser)
+        .update({sensorTemperatura: -999})
+        .then(() => {
+          window.location.reload()
+        })
+  }}
 
   function backgroundInput() {
     switch (!switchInput) {
@@ -171,7 +203,7 @@ export default function Sensor({ sensor, image, unidade, valor }) {
       <div>
         <p className="unity">{unidade}</p>
       </div>
-      <div className="flexrow">
+      {usedFor === 'comum' && <div className="flexrow">
         {switchInput ? (
           <IoLockClosed
             color="black"
@@ -208,7 +240,16 @@ export default function Sensor({ sensor, image, unidade, valor }) {
             />
           </button>
         </div>
-      </div>
+      </div>}
+
+      {usedFor == 'master' &&
+        <button onClick={(e) => deleteSensor(uidUser, sensorSelect, e)}>
+          <div className="exc-sensor">
+            <FiTrash2 size={30}/>
+            <p className="txt-exc">Excluir sensor</p>
+          </div>
+        </button>
+      }
 
       <div className="porfora">
         <p className={textoClassName}>{textoSensor(sensor, valor)}</p>

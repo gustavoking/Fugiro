@@ -8,6 +8,7 @@ import { toast } from "react-toastify";
 
 import { AuthContext } from "../../contexts/auth";
 import "./master.css";
+import ViewFazenda from "../../pages/ViewFazenda";
 
 export default function TelaMaster() {
   const { signOut, user } = useContext(AuthContext);
@@ -71,20 +72,23 @@ export default function TelaMaster() {
       <div className="container-fazendas">
         <span className="title-fazendas">Lista de fazendas</span>
         {listaFazendas.map((item) => {
+          const idUrl = `/fazenda/${item.id}`
           return (
-            <div className="lista-fazendas">
-              <div className="item-fazenda">
-                <BiUserCheck size={20} color="black" />
-                <span>Fazenda do {item.nome}</span>
-                <div className="fazenda-options">
-                  <FiTrash2
-                    size={20}
-                    color="#C87D61"
-                    onClick={() => handleDelete(item.id)}
-                  />
+            <Link to={idUrl}>
+              <div className="lista-fazendas">
+                <div className="item-fazenda">
+                  <BiUserCheck size={20} color="black" />
+                  <span>Fazenda do {item.nome}</span>
+                  <div className="fazenda-options">
+                    <FiTrash2
+                      size={20}
+                      color="#C87D61"
+                      onClick={() => handleDelete(item.id)}
+                    />
+                  </div>
                 </div>
               </div>
-            </div>
+            </Link>
           );
         })}
       </div>

@@ -1,7 +1,7 @@
 import { useState, useContext } from "react";
 
 import { AuthContext } from "../../contexts/auth";
-import "./signIn.css";
+import "./signin.css";
 
 function SignIn() {
   const [email, setEmail] = useState("");

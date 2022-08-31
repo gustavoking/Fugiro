@@ -8,6 +8,7 @@ export default function RouteWrapper({
   ...rest
 }) {
   const urlRegister = "http://localhost:3000/register";
+  const urlFazenda = "http://localhost:3000/fazenda";
 
   const { signed, loading, user } = useContext(AuthContext);
 
@@ -23,7 +24,11 @@ export default function RouteWrapper({
     return <Redirect to="/dashboard" />;
   }
 
-  if (signed && window.location.href === urlRegister && user.tipo === "comum") {
+  if (signed && urlRegister && user.tipo === "comum") {
+    alert("você nao pode acessar essa página");
+    return <Redirect to="/dashboard" />;
+  }
+  if (signed && urlFazenda.includes("fazenda") && user.tipo === "comum") {
     alert("você nao pode acessar essa página");
     return <Redirect to="/dashboard" />;
   }

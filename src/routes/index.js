@@ -11,7 +11,6 @@ import ViewFazenda from "../pages/ViewFazenda";
 import { AuthContext } from "../contexts/auth";
 
 export default function Routes() {
-  const { user, signed } = useContext(AuthContext);
   return (
     <Switch>
       <Route exact path="/" component={SignIn} />

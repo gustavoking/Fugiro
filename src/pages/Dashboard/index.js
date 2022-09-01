@@ -5,7 +5,7 @@ import TelaMaster from "../../Components/TelaMaster";
 import TelaComum from "../../Components/TelaComum";
 
 export default function Dashboard() {
-  const { signOut, user } = useContext(AuthContext);
+  const { user } = useContext(AuthContext);
 
   if (user.tipo == "master") {
     return <TelaMaster />;

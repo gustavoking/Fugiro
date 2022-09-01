@@ -7,7 +7,15 @@ import { AuthContext } from "../../contexts/auth";
 import "./styles.css";
 import { toast } from "react-toastify";
 
-export default function Sensor({ sensor, image, unidade, valor, usedFor, uidUser, sensorSelect }) {
+export default function Sensor({
+  sensor,
+  image,
+  unidade,
+  valor,
+  usedFor,
+  uidUser,
+  sensorSelect,
+}) {
   const [valorInput, setValorInput] = useState("");
   const [switchInput, setSwitchInput] = useState(true);
   const { user } = useContext(AuthContext);
@@ -15,37 +23,50 @@ export default function Sensor({ sensor, image, unidade, valor, usedFor, uidUser
   const textoClassName = `textoColor ${corTextoSensor(sensor, valor)}`;
   const inputClassName = `sizeInput ${backgroundInput()}`;
 
-  async function deleteSensor(uidUser, sensorSelect, e){
-    e.preventDefault()
-    switch(sensorSelect) {
-      case 'sensorAgua':
-        return await firebase.firestore().collection('users').doc(uidUser)
-        .update({sensorAgua: -999})
-        .then(() => {
-          window.location.reload()
-        })
-  
-      case 'sensorLuminosidade':
-        return await firebase.firestore().collection('users').doc(uidUser)
-        .update({sensorLuminosidade: -999})
-        .then(() => {
-          window.location.reload()
-        })
+  async function deleteSensor(uidUser, sensorSelect, e) {
+    e.preventDefault();
+    switch (sensorSelect) {
+      case "sensorAgua":
+        return await firebase
+          .firestore()
+          .collection("users")
+          .doc(uidUser)
+          .update({ sensorAgua: -999 })
+          .then(() => {
+            window.location.reload();
+          });
 
-      case 'sensorSonar':
-        return await firebase.firestore().collection('users').doc(uidUser)
-        .update({sensorSonar: -999})
-        .then(() => {
-          window.location.reload()
-        })
+      case "sensorLuminosidade":
+        return await firebase
+          .firestore()
+          .collection("users")
+          .doc(uidUser)
+          .update({ sensorLuminosidade: -999 })
+          .then(() => {
+            window.location.reload();
+          });
 
-      case 'sensorTemperatura':
-        return await firebase.firestore().collection('users').doc(uidUser)
-        .update({sensorTemperatura: -999})
-        .then(() => {
-          window.location.reload()
-        })
-  }}
+      case "sensorSonar":
+        return await firebase
+          .firestore()
+          .collection("users")
+          .doc(uidUser)
+          .update({ sensorSonar: -999 })
+          .then(() => {
+            window.location.reload();
+          });
+
+      case "sensorTemperatura":
+        return await firebase
+          .firestore()
+          .collection("users")
+          .doc(uidUser)
+          .update({ sensorTemperatura: -999 })
+          .then(() => {
+            window.location.reload();
+          });
+    }
+  }
 
   function backgroundInput() {
     switch (!switchInput) {
@@ -203,53 +224,55 @@ export default function Sensor({ sensor, image, unidade, valor, usedFor, uidUser
       <div>
         <p className="unity">{unidade}</p>
       </div>
-      {usedFor === 'comum' && <div className="flexrow">
-        {switchInput ? (
-          <IoLockClosed
-            color="black"
-            size={25}
-            style={{ marginLeft: 5, cursor: "pointer" }}
-            onClick={() => changeInput()}
-          />
-        ) : (
-          <IoLockOpenOutline
-            color="black"
-            size={25}
-            style={{ marginLeft: 5, cursor: "pointer" }}
-            onClick={() => changeInput()}
-          />
-        )}
-        <input
-          placeholder="..."
-          type="number"
-          value={valorInput}
-          onChange={(e) => setValorInput(e.target.value)}
-          className={inputClassName}
-          disabled={switchInput}
-        ></input>
-
-        <div>
-          <button
-            disabled={switchInput}
-            onClick={() => handleChange()}
-            className="handleButton"
-          >
-            <FiChevronRight
-              size={20}
-              color={!switchInput ? "black" : "#E2DFD2"}
+      {usedFor === "comum" && (
+        <div className="flexrow">
+          {switchInput ? (
+            <IoLockClosed
+              color="black"
+              size={25}
+              style={{ marginLeft: 5, cursor: "pointer" }}
+              onClick={() => changeInput()}
             />
-          </button>
-        </div>
-      </div>}
+          ) : (
+            <IoLockOpenOutline
+              color="black"
+              size={25}
+              style={{ marginLeft: 5, cursor: "pointer" }}
+              onClick={() => changeInput()}
+            />
+          )}
+          <input
+            placeholder="..."
+            type="number"
+            value={valorInput}
+            onChange={(e) => setValorInput(e.target.value)}
+            className={inputClassName}
+            disabled={switchInput}
+          ></input>
 
-      {usedFor == 'master' &&
+          <div>
+            <button
+              disabled={switchInput}
+              onClick={() => handleChange()}
+              className="handleButton"
+            >
+              <FiChevronRight
+                size={20}
+                color={!switchInput ? "black" : "#E2DFD2"}
+              />
+            </button>
+          </div>
+        </div>
+      )}
+
+      {usedFor === "master" && (
         <button onClick={(e) => deleteSensor(uidUser, sensorSelect, e)}>
           <div className="exc-sensor">
-            <FiTrash2 size={30}/>
+            <FiTrash2 size={30} />
             <p className="txt-exc">Excluir sensor</p>
           </div>
         </button>
-      }
+      )}
 
       <div className="porfora">
         <p className={textoClassName}>{textoSensor(sensor, valor)}</p>

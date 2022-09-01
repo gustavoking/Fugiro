@@ -106,8 +106,23 @@
   margin: 0px 20px;
 }
 
-.exc-sensor{
+.exc-sensor {
   display: flex;
   flex-direction: row;
   align-items: center;
+  width: 100%;
+  background-color: #000;
+  border-radius: 10px;
+  width: 120px;
+  opacity: 1;
+}
+
+.txt-exc {
+  color: white;
+}
+
+.botao-sens {
+  background-color: #000;
+  border-radius: 10px;
+  opacity: 0.8;
 }

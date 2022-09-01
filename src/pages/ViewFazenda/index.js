@@ -44,7 +44,6 @@ export default function ViewFazenda() {
             sensorTemperatura: snapshot.data().sensorTemperatura,
           };
 
-          console.log(data);
           setUserValue(data);
         });
     }
@@ -122,24 +121,23 @@ export default function ViewFazenda() {
               image={term}
               unidade={userValue.sensorTemperatura + "ºC"}
               valor={parseInt(userValue.sensorTemperatura)}
-              usedFor={"master"}
+              usedFor="master"
               uidUser={id}
               sensorSelect="sensorTemperatura"
             />
           )}
 
-        {parseInt(userValue.sensorAgua) < 101 &&
-          parseInt(userValue.sensorAgua) > -1 && (
-            <Sensor
-              sensor="Água"
-              image={waterA}
-              unidade={userValue.sensorAgua + "%"}
-              valor={parseInt(userValue.sensorAgua)}
-              usedFor={"master"}
-              uidUser={id}
-              sensorSelect="sensorAgua"
-            />
-          )}
+        {parseInt(userValue.sensorAgua) > -1 && (
+          <Sensor
+            sensor="Água"
+            image={waterA}
+            unidade={userValue.sensorAgua + "%"}
+            valor={parseInt(userValue.sensorAgua)}
+            usedFor="master"
+            uidUser={id}
+            sensorSelect="sensorAgua"
+          />
+        )}
 
         {parseInt(userValue.sensorLuminosidade) > -1 && (
           <Sensor
@@ -153,23 +151,22 @@ export default function ViewFazenda() {
           />
         )}
 
-        {parseInt(userValue.sensorSonar) < 101 &&
-          parseInt(userValue.sensorSonar) > -1 && (
-            <Sensor
-              sensor="Sonar"
-              image={sonar}
-              unidade={userValue.sensorSonar + "%"}
-              valor={parseInt(userValue.sensorSonar)}
-              usedFor={"master"}
-              uidUser={id}
-              sensorSelect="sensorSonar"
-            />
-          )}
+        {parseInt(userValue.sensorSonar) > -1 && (
+          <Sensor
+            sensor="Sonar"
+            image={sonar}
+            unidade={userValue.sensorSonar + "%"}
+            valor={parseInt(userValue.sensorSonar)}
+            usedFor="master"
+            uidUser={id}
+            sensorSelect="sensorSonar"
+          />
+        )}
       </div>
 
       <div className="container-button">
         <button className="buttonAdd-sensor" onClick={openModal}>
-          <BsPlusCircle size={20} color="black" />
+          <BsPlusCircle size={20} color="white" />
           <span>Adicionar sensor</span>
         </button>
 

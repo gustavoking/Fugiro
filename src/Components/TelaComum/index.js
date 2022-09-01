@@ -66,7 +66,7 @@ export default function TelaComum() {
               image={term}
               unidade={userVariables.sensorTemperatura + "ºC"}
               valor={parseInt(userVariables.sensorTemperatura)}
-              usedFor={"comum"}
+              usedFor="comum"
             />
           )}
 
@@ -76,7 +76,7 @@ export default function TelaComum() {
             image={waterA}
             unidade={userVariables.sensorAgua + "%"}
             valor={parseInt(userVariables.sensorAgua)}
-            usedFor={"comum"}
+            usedFor="comum"
           />
         )}
 
@@ -86,7 +86,7 @@ export default function TelaComum() {
             image={sol}
             unidade={userVariables.sensorLuminosidade + "lux"}
             valor={userVariables.sensorLuminosidade}
-            usedFor={"comum"}
+            usedFor="comum"
           />
         )}
 
@@ -96,7 +96,7 @@ export default function TelaComum() {
             image={sonar}
             unidade={userVariables.sensorSonar + "%"}
             valor={userVariables.sensorSonar}
-            usedFor={"comum"}
+            usedFor="comum"
           />
         )}
       </div>

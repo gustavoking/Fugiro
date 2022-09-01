@@ -2,7 +2,7 @@ import React from "react";
 import { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { BiLogOut, BiUserCheck } from "react-icons/bi";
-import { FiUserPlus, FiTrash2 } from "react-icons/fi";
+import { FiUserPlus, FiTrash2, FiUsers } from "react-icons/fi";
 import firebase from "../../services/firebaseConnection";
 import { toast } from "react-toastify";
 
@@ -72,12 +72,37 @@ export default function TelaMaster() {
         <span className="title-fazendas">Lista de fazendas</span>
         {listaFazendas.map((item) => {
           const idUrl = `/fazenda/${item.id}`;
-          return (
-            <Link to={idUrl}>
+          if (item.tipo === "comum") {
+            return (
+              <Link to={idUrl}>
+                <div className="lista-fazendas">
+                  <div className="item-fazenda">
+                    <BiUserCheck size={20} color="black" />
+                    <span className="nomeFazenda">Fazenda do {item.nome}</span>
+                    <div className="fazenda-options">
+                      <FiTrash2
+                        size={20}
+                        color="#C87D61"
+                        onClick={() => handleDelete(item.id)}
+                      />
+                    </div>
+                  </div>
+                </div>
+              </Link>
+            );
+          }
+        })}
+        <span className="title-fazendas title-admnistradores">
+          Lista de Administradores
+        </span>
+
+        {listaFazendas.map((item) => {
+          if (item.tipo === "master") {
+            return (
               <div className="lista-fazendas">
                 <div className="item-fazenda">
-                  <BiUserCheck size={20} color="black" />
-                  <span>Fazenda do {item.nome}</span>
+                  <FiUsers size={20} color="black" />
+                  <span className="nomeAdm">{item.nome}</span>
                   <div className="fazenda-options">
                     <FiTrash2
                       size={20}
@@ -87,8 +112,8 @@ export default function TelaMaster() {
                   </div>
                 </div>
               </div>
-            </Link>
-          );
+            );
+          }
         })}
       </div>
       ;

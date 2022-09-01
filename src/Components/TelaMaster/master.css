@@ -96,7 +96,7 @@
   height: 60px;
 }
 
-.item-fazenda span {
+.nomeFazenda {
   font-size: 24px;
   text-align: center;
   justify-content: center;
@@ -114,4 +114,22 @@
   justify-content: space-between;
   width: 45px;
   cursor: pointer;
+}
+
+.title-admnistradores {
+  margin-top: 50px;
+}
+
+.nomeAdm {
+  font-size: 24px;
+  text-align: center;
+  justify-content: center;
+  margin-left: 40px;
+  color: #000;
+  opacity: 0.8;
+  font-weight: bold;
+}
+
+.lista-fazendas {
+  overflow-y: hidden;
 }

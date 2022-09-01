@@ -126,8 +126,6 @@ export default function Sensor({
   }
 
   function textoSensor(sensor, valor) {
-    console.log("sensor", sensor);
-    console.log("valor", valor);
     switch (sensor) {
       case "Temperatura":
         return `aquecimento ${textoSensorValor(sensor, valor)}`;
@@ -145,9 +143,6 @@ export default function Sensor({
   };
 
   const handleChange = async () => {
-    console.log("sensor", sensor);
-    console.log("valorInput", valorInput);
-    console.log("switchInput", switchInput);
     if (!switchInput && valorInput !== "") {
       if (
         sensor === "Temperatura" &&
@@ -164,7 +159,7 @@ export default function Sensor({
           .then(() => {
             window.location.reload();
           });
-      } else if (parseInt(valorInput) >= 0) {
+      } else if (parseInt(valorInput) >= 0 && parseInt(valorInput) < 101) {
         switch (sensor) {
           case "Água":
             return await firebase
@@ -271,9 +266,12 @@ export default function Sensor({
       )}
 
       {usedFor === "master" && (
-        <button onClick={(e) => deleteSensor(uidUser, sensorSelect, e)}>
+        <button
+          className="botao-sens"
+          onClick={(e) => deleteSensor(uidUser, sensorSelect, e)}
+        >
           <div className="exc-sensor">
-            <FiTrash2 size={30} />
+            <FiTrash2 size={25} color="white" />
             <p className="txt-exc">Excluir sensor</p>
           </div>
         </button>

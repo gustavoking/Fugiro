@@ -7,7 +7,7 @@ import TelaComum from "../../Components/TelaComum";
 export default function Dashboard() {
   const { user } = useContext(AuthContext);
 
-  if (user.tipo == "master") {
+  if (user.tipo === "master") {
     return <TelaMaster />;
   } else {
     return <TelaComum />;

@@ -96,7 +96,7 @@ function SignUp() {
     <div className="container-center">
       <div className="signup">
         <form onSubmit={handleSubmit} className="form-signup">
-          <h1>Cadastrar uma conta</h1>
+          <h1 className="cadastroh1">Cadastrar uma conta</h1>
 
           <span>Insira o nome</span>
           <input
@@ -215,7 +215,7 @@ function SignUp() {
               </div>
             </div>
           )}
-          {tipo == "master" && setCidade("")}
+          {tipo === "master" && setCidade("")}
 
           <button type="submit" className="button-signup">
             {loadingAuth ? "Carregando..." : "Cadastrar"}

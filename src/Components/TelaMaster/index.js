@@ -74,7 +74,7 @@ export default function TelaMaster() {
           const idUrl = `/fazenda/${item.id}`;
           if (item.tipo === "comum") {
             return (
-              <Link to={idUrl}>
+              <Link to={idUrl} className="Link-to">
                 <div className="lista-fazendas">
                   <div className="item-fazenda">
                     <BiUserCheck size={20} color="black" />
@@ -82,7 +82,8 @@ export default function TelaMaster() {
                     <div className="fazenda-options">
                       <FiTrash2
                         size={20}
-                        color="#C87D61"
+                        color="black"
+                        opacity={0.7}
                         onClick={() => handleDelete(item.id)}
                       />
                     </div>
@@ -99,14 +100,14 @@ export default function TelaMaster() {
         {listaFazendas.map((item) => {
           if (item.tipo === "master") {
             return (
-              <div className="lista-fazendas">
-                <div className="item-fazenda">
+              <div className="lista-fazendas opacidade">
+                <div className="item-fazenda transition: none">
                   <FiUsers size={20} color="black" />
                   <span className="nomeAdm">{item.nome}</span>
                   <div className="fazenda-options">
                     <FiTrash2
                       size={20}
-                      color="#C87D61"
+                      color="black"
                       onClick={() => handleDelete(item.id)}
                     />
                   </div>

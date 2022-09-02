@@ -5,7 +5,7 @@
   flex-direction: column;
   height: 100%;
   width: 100%;
-  overflow: hidden;
+  overflow-y: scroll;
   background-color: #d9d9d9;
 }
 
@@ -60,6 +60,11 @@
   align-items: center;
 }
 
+.container-adduser:hover {
+  opacity: 0.6;
+  transition: 0.5s all;
+}
+
 .container-adduser span {
   color: black;
   font-size: 20px;
@@ -94,6 +99,7 @@
   box-shadow: 5px 5px 15px -9px #000000;
   margin-top: 20px;
   height: 60px;
+  transition: 1s all;
 }
 
 .nomeFazenda {
@@ -130,6 +136,12 @@
   font-weight: bold;
 }
 
-.lista-fazendas {
-  overflow-y: hidden;
+.item-fazenda:hover {
+  background-color: #d9d9d9;
+  transform: scale(1.1);
+}
+
+.opacidade {
+  opacity: 0.5;
+  transform: none;
 }

@@ -270,10 +270,7 @@ export default function Sensor({
           className="botao-sens"
           onClick={(e) => deleteSensor(uidUser, sensorSelect, e)}
         >
-          <div className="exc-sensor">
-            <FiTrash2 size={25} color="white" />
-            <p className="txt-exc">Excluir sensor</p>
-          </div>
+          <FiTrash2 size={28} color="black" />
         </button>
       )}
 

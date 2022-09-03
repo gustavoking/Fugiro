@@ -1,71 +1,88 @@
-@import url('https://fonts.googleapis.com/css2?family=Kanit&display=swap');
-
-.container-center{
+@import url("https://fonts.googleapis.com/css2?family=Kanit&display=swap");
+body {
+  background-color: #ccc6ba;
+}
+.container-center {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-around;
   height: 100%;
-  background-color: #CCC6BA;
+  background-color: #ccc6ba;
 }
 
-.container-title{
+.container-title {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 
-.fugiro{
-  font-size: 50px;
-  font-family: 'Kanit', cursive;
+.titulo-fugiro {
+  font-size: 25px;
   color: white;
 }
 
-.agro{
-  font-size: 30px;
-  font-family: 'Kanit';
-  color: #FF5E1E;
+.titulo-agro {
+  font-size: 25px;
+  color: #ff5e1e;
 }
 
-.login{
+.login {
+  padding: 0px 0px 0px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 70%;
+  height: 500px;
   width: 500px;
-  background: #3F3C37;
+  background: #1c1c1c;
   border-radius: 8px;
-  -webkit-box-shadow: 0px 10px 13px -7px #ffffff, -4px -5px 0px 8px rgba(0,0,0,0); 
-  box-shadow: 0px 10px 13px -7px #000000, -4px -5px 0px 8px rgba(255, 255, 255, 0);
+  -webkit-box-shadow: 0px 10px 13px -7px #ffffff,
+    -4px -5px 0px 8px rgba(0, 0, 0, 0);
+  box-shadow: 0px 10px 13px -7px #000000,
+    -4px -5px 0px 8px rgba(255, 255, 255, 0);
   backdrop-filter: blur(7px) saturate(74%);
   -webkit-backdrop-filter: blur(7px) saturate(74%);
   border-radius: 12px;
   border: 1px solid rgba(255, 255, 255, 0.125);
 }
 
-.form{
+.imageee {
+  border-radius: 450px 450px 450px 450px;
+  width: 150px;
+  height: 150px;
+  position: relative;
+  bottom: 22%;
+}
+
+.form {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  padding-bottom: 10vh;
+  margin-top: -40px;
 }
 
-.form h1{
-  color: #FFF;
-  font-size: 30px;
+.title-fugiro {
+  color: white;
+  font-size: 24px;
 }
 
-.form input{
+.title-agro {
+  color: #ee936f;
+  font-size: 24px;
+}
+
+.input2 {
   font-size: 15px;
   padding: 5px 5px;
-  background-color: #FFF;
+  background-color: #fff;
   border-top: 0px;
   border-right: 0px;
   border-left: 0px;
   border-bottom: 1px;
-  border-color: #000000;
   margin-top: 30px;
   color: #000;
   border-radius: 5px;
@@ -73,24 +90,39 @@
   height: 30px;
 }
 
-.form input div{
-  width: 40px;
-}
-
-.form button{
+.botao {
   margin-top: 20px;
   width: 300px;
-  height: 30px;
+  height: 40px;
   border-radius: 5px;
   background-color: #ee936f;
   border: 0px;
-  font-family: 'Kanit';
+  font-family: "Kanit";
   font-size: 20px;
+  transition: 1s all;
+  cursor: pointer;
 }
 
-.login a{
-  margin-top: 20px;
+.botao:hover {
+  background-color: #32cd32;
+  transform: scale(1.1);
+  color: white;
+}
+
+.login a {
   color: rgb(134, 134, 134);
+  position: relative;
+  bottom: 5vh;
 }
 
+@media screen and (max-width: 480px) {
+  .login {
+    width: 80%;
+  }
 
+  .input1,
+  .input2,
+  .botao {
+    width: 90%;
+  }
+}

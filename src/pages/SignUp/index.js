@@ -1,6 +1,7 @@
 import { toast } from "react-toastify";
-import { useState, useContext, useEffect } from "react";
+import { useState, useContext } from "react";
 import { Link } from "react-router-dom";
+import logo from "../../assets/iconFA.png";
 
 import { AuthContext } from "../../contexts/auth";
 
@@ -8,7 +9,7 @@ import "./signup.css";
 
 import BrazilStates from "../../Components/Forms/BrazilStates";
 import BrazilCities from "../../Components/Forms/BrazilCities";
-import { LocalContext, LocalProvider } from "../../contexts/local";
+import { LocalContext } from "../../contexts/local";
 
 function SignUp() {
   const [nome, setNome] = useState("");
@@ -95,34 +96,39 @@ function SignUp() {
   return (
     <div className="container-center">
       <div className="signup">
+        <img className="imageeSignUp" src={logo} />
+
         <form onSubmit={handleSubmit} className="form-signup">
           <h1 className="cadastroh1">Cadastrar uma conta</h1>
 
-          <span>Insira o nome</span>
+          <span className="spanSignUp">Insira o nome</span>
           <input
             type="text"
             placeholder="nome..."
             value={nome}
             onChange={(e) => setNome(e.target.value)}
+            className="inputSignUp"
           />
 
-          <span>Insira o email</span>
+          <span className="spanSignUp">Insira o email</span>
           <input
             type="text"
             placeholder="email@email.com"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
+            className="inputSignUp"
           />
 
-          <span>Insira a senha</span>
+          <span className="spanSignUp">Insira a senha</span>
           <input
             type="text"
             placeholder="senha..."
             value={password}
             onChange={(e) => setPassword(e.target.value)}
+            className="inputSignUp"
           />
 
-          <span>Tipo do usuário</span>
+          <span className="spanSignUp">Tipo do usuário</span>
 
           <div className="container-radio">
             <div className="container-radioitem">
@@ -151,8 +157,8 @@ function SignUp() {
 
                 <BrazilCities state={formValues.state} />
               </div>
-              <span className="spaan">Selecione os sensores</span>
-              <div className="container-sensores">
+              <span className="spanSignUp">Selecione os sensores</span>
+              <div className="divSensores">
                 <div className="sensor">
                   <input
                     type="checkbox"

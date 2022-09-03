@@ -27,7 +27,7 @@
   color: aliceblue;
 }
 
-.form-signup span {
+.spanSignUp {
   color: aliceblue;
   font-size: 19px;
   margin-top: 15px;
@@ -104,7 +104,7 @@
   justify-content: space-between;
 }
 
-.container-sensores {
+.divSensores {
   display: flex;
   flex-direction: column;
   margin-top: 20px;
@@ -136,4 +136,11 @@
 .cadastroh1 {
   justify-content: center;
   color: #000;
+}
+
+.imageeSignUp {
+  border-radius: 450px 450px 450px 450px;
+  width: 150px;
+  height: 150px;
+  bottom: 22%;
 }

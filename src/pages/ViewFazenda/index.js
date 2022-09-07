@@ -4,6 +4,7 @@ import firebase from "../../services/firebaseConnection";
 import Sensor from "../../Components/Sensor";
 import { BiArrowBack } from "react-icons/bi";
 import { BsPlusCircle } from "react-icons/bs";
+import { IoMdClose } from 'react-icons/io'
 import Modal from "react-modal";
 
 import sol from "../../assets/sol-removebg-preview.png";
@@ -176,7 +177,9 @@ export default function ViewFazenda() {
           overlayClassName="modal-overlay"
           className="modal-content"
         >
-          <button onClick={closeModal}>Close</button>
+          <button className="close-modal" onClick={closeModal}>
+            <IoMdClose size={25} color='black'/>
+          </button>
 
           <div className="container-options">
             {userValue.sensorLuminosidade < 0 && (
@@ -251,11 +254,11 @@ export default function ViewFazenda() {
               userValue.sensorLuminosidade > -1 &&
               userValue.sensorSonar > -1 &&
               userValue.sensorTemperatura > -1 && (
-                <span>Todos os sensores estão habilitados</span>
+                <span className="alert-sensores">Todos os sensores estão habilitados</span>
               )}
 
             <button className="add-sensores" onClick={(e) => addSensores(e)}>
-              Ok
+              Concluído
             </button>
           </div>
         </Modal>
